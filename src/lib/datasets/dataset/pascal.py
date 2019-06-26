@@ -46,7 +46,7 @@ class PascalVOC(data.Dataset):
 
     print('==> initializing pascal {} data.'.format(_ann_name[split]))
     self.coco = coco.COCO(self.annot_path)
-    self.images = self.coco.getImgIds()
+    self.images = sorted(self.coco.getImgIds())
     self.num_samples = len(self.images)
 
     print('Loaded {} {} samples'.format(split, self.num_samples))
